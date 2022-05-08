@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Amazon.DynamoDBv2.Model;
+using System;
 using System.Threading.Tasks;
 
 namespace DynamoDbTransfer
@@ -13,16 +12,13 @@ namespace DynamoDbTransfer
             {
                 return await exec.Invoke();
             }
-            catch (Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException ex)
+            catch (ProvisionedThroughputExceededException ex)
             {
                 Console.WriteLine($"ProvisionedThroughputExceededException: {ex.Message}");
-                int i = 0;
 
                 while (true)
                 {
-                    System.Threading.Thread.Sleep(5000);
-
-                    i++;
+                    await Task.Delay(5000);
 
                     try
                     {
@@ -42,17 +38,13 @@ namespace DynamoDbTransfer
             {
                 await exec.Invoke();
             }
-            catch (Amazon.DynamoDBv2.Model.ProvisionedThroughputExceededException ex)
+            catch (ProvisionedThroughputExceededException ex)
             {
                 Console.WriteLine($"ProvisionedThroughputExceededException: {ex.Message}");
 
-                int i = 0;
-
                 while (true)
                 {
-                    System.Threading.Thread.Sleep(5000);
-
-                    i++;
+                    await Task.Delay(5000);
 
                     try
                     {

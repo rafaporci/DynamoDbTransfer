@@ -4,8 +4,6 @@ using Amazon.DynamoDBv2.DocumentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DynamoDbTransfer
@@ -14,7 +12,7 @@ namespace DynamoDbTransfer
     {
         static void Main(string[] args)
         {
-            // If your table does not have auto scale, the process can increase/decrease the capacity for you
+            // If your tables do not have auto scale, the process can increase/decrease the capacity for you
             bool increaseCapacity = args.Any(a => a == "-d");
 
             // Specify here the credentials to the origin and target
