@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DynamoDbTransfer": {
+      "commandName": "Project",
+      "commandLineArgs": "-d"
+    }
+  }
+}
